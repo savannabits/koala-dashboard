@@ -17,8 +17,8 @@
     @stack('styles')
 </head>
 <body class="bg-gray-100 h-screen antialiased leading-none font-sans">
-    <div id="app">
-        <header class="bg-primary py-6">
+    <div id="app" x-data x-cloak>
+        {{--<header class="bg-primary py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
                     <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
@@ -45,6 +45,12 @@
                 </nav>
             </div>
         </header>
+        --}}
+        <x-nav.bar>
+            <x-nav.bar-item :href="route('home')">DASHBOARD</x-nav.bar-item>
+            <x-nav.bar-item :href="route('login')">Login</x-nav.bar-item>
+            <x-nav.bar-item href="/"></x-nav.bar-item>
+        </x-nav.bar>
 
         @yield('content')
     </div>
