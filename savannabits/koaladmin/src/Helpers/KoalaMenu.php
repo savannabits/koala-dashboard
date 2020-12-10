@@ -23,7 +23,7 @@ class KoalaMenu
     {
         $instance = $this;
         $instance->currentActive = url()->current();
-        $instance->activeClass = "bg-primary-lighter dark:bg-primary text-gray-600 dark:text-gray-200 border-none border-l-4 border-primary dark:border-primary-darker";
+        $instance->activeClass = "bg-primary-lighter dark:bg-primary text-gray-600 dark:text-gray-200 border-b-0 border-l-4 border-primary dark:border-primary-darker";
         $instance->itemParentAttributes = [
             "class" => "relative p-0"
         ];
@@ -84,7 +84,11 @@ class KoalaMenu
             $menu->setAttribute($key,$menuAttribute);
         }
         foreach ($this->items as $item) {
-            $menu->add(\Spatie\Menu\Link::to($item->getLink(), \Spatie\Menu\Html::raw($item->getTitle().$item->getIcon())->render()));
+            if ($item->getPermission()){
+                $menu->addIf(\Auth::check() && \Auth::user()->can($item->getPermission()),\Spatie\Menu\Link::to($item->getLink(), \Spatie\Menu\Html::raw($item->getTitle().$item->getIcon())->render()));
+            } else {
+                $menu->add(\Spatie\Menu\Link::to($item->getLink(), \Spatie\Menu\Html::raw($item->getTitle().$item->getIcon())->render()));
+            }
         }
         $menu->each(function ($item) {
             foreach ($this->itemParentAttributes as $key => $itemParentAttribute) {

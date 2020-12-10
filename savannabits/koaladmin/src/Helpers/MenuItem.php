@@ -6,7 +6,7 @@ namespace Savannabits\Koaladmin\Helpers;
 
 class MenuItem
 {
-    protected $name = null, $title = null,$link = null, $icon = null, $hasChildren = false, $children = [];
+    protected $slug = null,$permission, $title = null,$link = null, $icon = null, $hasChildren = false, $children = [];
     public static function instance() {
         return new self();
     }
@@ -52,12 +52,12 @@ class MenuItem
     }
 
     /**
-     * @param null $name
+     * @param null $slug
      * @return MenuItem
      */
-    public function setName($name): MenuItem
+    public function setSlug($slug): MenuItem
     {
-        $this->name = $name;
+        $this->slug = $slug;
         return $this;
     }
 
@@ -98,9 +98,9 @@ class MenuItem
     /**
      * @return string|null
      */
-    public function getName()
+    public function getSlug()
     {
-        return $this->name;
+        return $this->slug;
     }
 
     /**
@@ -109,5 +109,23 @@ class MenuItem
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPermission()
+    {
+        return $this->permission;
+    }
+
+    /**
+     * @param mixed $permission
+     * @return MenuItem
+     */
+    public function setPermission($permission): MenuItem
+    {
+        $this->permission = $permission;
+        return $this;
     }
 }

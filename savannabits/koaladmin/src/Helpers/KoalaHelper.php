@@ -27,6 +27,8 @@ class KoalaHelper
             $collection = collect($item);
             $menuItem = MenuItem::instance()
                 ->setTitle($collection->get('title'))
+                ->setSlug($collection->get('slug'))
+                ->setPermission($collection->get('permission_name'))
                 ->setIcon('<i class="'.$collection->get('icon_class').'"></i>')
             ;
             if ($collection->get('manual_link')) {

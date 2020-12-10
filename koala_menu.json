@@ -2,7 +2,7 @@
     {
         "slug": "dashboard",
         "title": "Dashboard",
-        "icon_class": null,
+        "icon_class": "fas fa-home ml-auto",
         "route_name": "admin.dashboard",
         "permission_name": "",
         "manual_link": null,
