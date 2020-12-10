@@ -1,17 +1,18 @@
 <?php
 function makeMenu() {
     $menu = \Spatie\Menu\Menu::new()
-        ->setAttribute('class','list-none')
+        ->setAttribute('class','')
         ->setAttribute('x-cloak')
-        ->setAttribute("role","navigation")
-        ->add(\Spatie\Menu\Link::to(route('home'),\Spatie\Menu\Html::raw('<i class="fas fa-home"></i> HOME')->render()))
+        ->add(\Spatie\Menu\Link::to(route('home'),"Home".\Spatie\Menu\Html::raw('<i class="fas fa-home"></i>')->render()))
         ->add(\Spatie\Menu\Link::to(route('alerts'),"Alerts"))
         ->add(\Spatie\Menu\Link::to(route('admin.dashboard'),"Admin Dashboard"))
-        ->each(function ($item) {
-            $item->setParentAttribute('class','p-2 py-4 border-b font-semibold hover:bg-secondary-lighter')
+        ->each(function (\Spatie\Menu\Link $item) {
+            $item->setParentAttribute('class','relative p-0')
+                ->setAttribute('class','inline-flex items-center w-full text-sm px-2 py-4 my-0 font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200')
             ;
         })
-        ->setActiveClass('bg-blue-100 border-l-4 border-primary')
+        ->setActiveClassOnParent()
+        ->setActiveClass('bg-blue-100 border-b-0 border-r-8 border-l-4 border-primary rounded-r-full')
         ->setActive(url()->current())
     ;
     return $menu;

@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="82717287-e13a-442e-94b4-a42772988011" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../koala_menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../koala_menu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/KoalaHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/KoalaHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/KoalaMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/KoalaMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Helpers/MenuItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Helpers/MenuItem.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +155,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607605173633</updated>
-      <workItem from="1607605177577" duration="34185000" />
+      <workItem from="1607605177577" duration="34801000" />
     </task>
     <servers />
   </component>

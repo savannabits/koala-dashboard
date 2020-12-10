@@ -14,7 +14,9 @@
         @endif
         <div class="flex flex-col lg:flex-row w-full">
             <x-card title="Modules" class="w-full lg:bg-transparent mb-4 lg:w-1/5 shadow md:shadow-none rounded-none" bodyClasses="px-0">
-                {!! $menu->render() !!}
+                <div>
+                    {!! $menu->render() !!}
+                </div>
             </x-card>
             <section class="w-full lg:ml-2">
                 <x-card title="Dashboard" class="h-full" headerBackground="bg-primary-lighter">

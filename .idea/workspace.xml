@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d3a6dcad-d737-4e01-88dd-1626b1ac04d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/koala_menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/koala_menu.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/src/Helpers/KoalaHelper.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/src/Helpers/KoalaHelper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/src/Helpers/KoalaMenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/src/Helpers/KoalaMenu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/src/Helpers/MenuItem.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/src/Helpers/MenuItem.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +208,7 @@
       <workItem from="1607503202183" duration="449000" />
       <workItem from="1607504351289" duration="18521000" />
       <workItem from="1607542231881" duration="20535000" />
-      <workItem from="1607604231566" duration="29782000" />
+      <workItem from="1607604231566" duration="31154000" />
     </task>
     <servers />
   </component>
