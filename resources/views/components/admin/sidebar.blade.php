@@ -1,6 +1,6 @@
 @props(['footer' => null])
 @php
-    $sidebar = adminSidebarMenu();
+    $sidebar = Savannabits\Koaladmin\Helpers\KoalaHelper::makeMenu();
 @endphp
 <!-- Desktop sidebar -->
 <aside
@@ -17,8 +17,9 @@
         </div>
         {!! $sidebar->render() !!}
         @if($footer)
-            <hr class="my-4">
-            {{$footer}}
+            <div class="mt-24">
+                {{$footer}}
+            </div>
         @endif
     </div>
 </aside>

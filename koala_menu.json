@@ -1,0 +1,30 @@
+[
+    {
+        "slug": "dashboard",
+        "title": "Dashboard",
+        "icon_class": null,
+        "route_name": "admin.dashboard",
+        "permission_name": "",
+        "manual_link": null,
+        "has_children": false,
+        "children": []
+    },
+    {
+        "slug": "authors",
+        "title": "Authors",
+        "icon_class": "fas fa-folder ml-auto",
+        "route_name": "admin.authors.index",
+        "permission_name": "authors",
+        "has_children": false,
+        "children": []
+    },
+    {
+        "slug": "articles",
+        "title": "Articles",
+        "icon_class": "fas fa-folder ml-auto",
+        "route_name": "admin.articles.index",
+        "permission_name": "articles",
+        "has_children": false,
+        "children": []
+    }
+]

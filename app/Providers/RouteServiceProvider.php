@@ -38,6 +38,12 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+
+        Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/koaladmin.php'));
+        
+
             Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)
@@ -46,11 +52,6 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
-
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->prefix('admin')
-                ->group(base_path('routes/backend.php'));
         });
     }
 

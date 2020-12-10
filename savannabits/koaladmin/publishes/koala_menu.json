@@ -1,0 +1,10 @@
+[
+    {
+        "title": "Dashboard",
+        "icon_class": null,
+        "route_name": "admin.dashboard",
+        "manual_link": null,
+        "has_children": false,
+        "children": []
+    }
+]

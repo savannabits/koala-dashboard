@@ -1,0 +1,63 @@
+{
+    "name": "savannabits/koaladmin",
+    "description": "Laravel Admin Generator using Alpine.js, Tailwindcss and Laravel 8+",
+    "keywords": [
+        "savannabits",
+        "koaladmin"
+    ],
+    "homepage": "https://github.com/savannabits/koaladmin",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Samson Maosa",
+            "email": "maosa.sam@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^7.4",
+        "doctrine/dbal": "^2.10.3|^3.0.0",
+        "illuminate/support": "^8.15",
+        "laravel/sanctum": "^v2.8.2",
+        "laravel/helpers": "^v1.4.0",
+        "laravel/scout": "^v8.4.0",
+        "spatie/laravel-permission": "^3.18.0",
+        "spatie/menu": "^2.10.2",
+        "rennokki/laravel-eloquent-query-cache": "^2.5.0",
+        "teamtnt/laravel-scout-tntsearch-driver": "^9.0|^10.0",
+        "yajra/laravel-datatables-oracle": "^v9.15.2",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0|^9.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Savannabits\\Koaladmin\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Savannabits\\Koaladmin\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Savannabits\\Koaladmin\\KoaladminServiceProvider"
+            ],
+            "aliases": {
+                "Koaladmin": "Savannabits\\Koaladmin\\KoaladminFacade"
+            }
+        }
+    }
+}
