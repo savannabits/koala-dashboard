@@ -19,7 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/alerts', function (Request $request) {
+Route::middleware('auth')->get('/alerts', function (Request $request) {
     return view('alerts');
 })->name('alerts');
 

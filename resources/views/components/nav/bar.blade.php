@@ -47,6 +47,7 @@
                     </svg>
                 </button>
 
+                @auth
                 <!-- Profile dropdown -->
                 <div class="ml-3 relative">
                     <x-nav.profile-dropdown title="{{Auth::user()->name}}">
@@ -55,6 +56,7 @@
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
                     </x-nav.profile-dropdown>
                 </div>
+                @endauth
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none font-sans">
+<body class="bg-gray-50 h-screen antialiased leading-none font-sans">
     <div id="app" x-data x-cloak>
         {{--<header class="bg-primary py-6">
             <div class="container mx-auto flex justify-between items-center px-6">
@@ -47,7 +47,7 @@
         </header>
         --}}
         <x-nav.bar>
-            <x-nav.bar-item :href="route('home')">DASHBOARD</x-nav.bar-item>
+            <x-nav.bar-item :href="route('home')">Dashboard</x-nav.bar-item>
             <x-nav.bar-item :href="route('login')">Login</x-nav.bar-item>
             <x-nav.bar-item href="/"></x-nav.bar-item>
         </x-nav.bar>
