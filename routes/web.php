@@ -22,3 +22,6 @@ Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->nam
 Route::middleware('auth')->get('/alerts', function (Request $request) {
     return view('alerts');
 })->name('alerts');
+Route::middleware('auth')->get('/buttons', function (Request $request) {
+    return view('buttons');
+})->name('buttons');

@@ -5,26 +5,15 @@
     $menu = makeMenu();
     @endphp
 <main x-data="home()" class="md:container sm:mx-auto sm:mt-10">
-    <div class="w-full sm:px-3">
-
-        @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
-        <div class="flex flex-col lg:flex-row w-full">
-            <x-card title="Modules" class="w-full lg:bg-transparent mb-4 lg:w-1/5 shadow md:shadow-none rounded-none" bodyClasses="px-0">
-                <div>
-                    {!! $menu->render() !!}
-                </div>
-            </x-card>
-            <section class="w-full lg:ml-2">
-                <x-card title="Dashboard" class="h-full" headerBackground="bg-primary-lighter">
-                    This is your dashboard
-                </x-card>
-            </section>
-        </div>
-    </div>
+    <x-body>
+        <x-slot name="sidebar">
+            {!! $menu->render() !!}
+        </x-slot>
+        <x-card title="Dashboard" class="h-full" headerBackground="bg-primary-lighter">
+            <h4 class="font-black text-lg">Welcome to the World</h4>
+            <p class="h-full">I start here and go, yet you can't catch</p>
+        </x-card>
+    </x-body>
 </main>
 @endsection
 @push('scripts')

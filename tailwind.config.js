@@ -7,14 +7,15 @@ module.exports = {
       './resources/**/*.js',
       './resources/**/*.vue',
   ],
+  important: true,
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
         colors: {
             primary: {
-                DEFAULT: colors.indigo["500"],
-                lighter: colors.indigo["200"],
-                darker: colors.indigo["600"],
+                DEFAULT: colors.blue["500"],
+                lighter: colors.blue["200"],
+                darker: colors.blue["700"],
             },
             secondary: {
                 DEFAULT: colors.gray["300"],
@@ -25,12 +26,12 @@ module.exports = {
             },
             accent: {
                 DEFAULT: colors.pink["500"],
-                darker: colors.pink["600"],
+                darker: colors.pink["700"],
                 lighter: colors.pink["200"],
             },
             warning: {
                 DEFAULT: colors.yellow["500"],
-                darker: colors.yellow["600"],
+                darker: colors.yellow["700"],
                 lighter: colors.yellow["200"],
             },
             success: {

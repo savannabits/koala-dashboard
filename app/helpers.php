@@ -3,9 +3,9 @@ function makeMenu() {
     $menu = \Spatie\Menu\Menu::new()
         ->setAttribute('class','')
         ->setAttribute('x-cloak')
-        ->add(\Spatie\Menu\Link::to(route('home'),"Home".\Spatie\Menu\Html::raw('<i class="fas fa-home"></i>')->render()))
-        ->add(\Spatie\Menu\Link::to(route('alerts'),"Alerts"))
-        ->add(\Spatie\Menu\Link::to(route('admin.dashboard'),"Admin Dashboard"))
+        ->add(\Spatie\Menu\Link::to(route('home'),\Spatie\Menu\Html::raw('Home <i class="fas fa-home ml-auto"></i>')->render()))
+        ->add(\Spatie\Menu\Link::to(route('buttons'),\Spatie\Menu\Html::raw('Buttons <i class="fa fa-dashboard ml-auto"></i>')->render()))
+        ->add(\Spatie\Menu\Link::to(route('alerts'),\Spatie\Menu\Html::raw('Alerts <i class="fas fa-warning ml-auto"></i>')->render()))
         ->each(function (\Spatie\Menu\Link $item) {
             $item->setParentAttribute('class','relative p-0')
                 ->setAttribute('class','inline-flex items-center w-full text-sm px-2 py-4 my-0 font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200')

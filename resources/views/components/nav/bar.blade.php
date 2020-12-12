@@ -2,7 +2,7 @@
     'active' => null,
 ])
 <!-- This example requires Tailwind CSS v2.0+ -->
-<nav x-data="{open: false}" class="bg-primary text-gray-800 dark:text-gray-200 dark:bg-gray-800">
+<nav x-data="{open: false}" class="bg-primary fixed top-0 z-10 w-full text-gray-800 dark:text-gray-200 dark:bg-gray-800">
     <div class="md:container mx-auto px-2">
         <div class="relative flex items-center my-0 justify-between h-16">
             <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
