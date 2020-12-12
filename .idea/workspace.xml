@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3a6dcad-d737-4e01-88dd-1626b1ac04d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/koala.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/koala.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Article.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Author.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/ModelFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/alerts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/alerts.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/admin/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/nav/bar-item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/nav/bar-item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/nav/bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/nav/bar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/koaladmin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/koaladmin/dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/koaladmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/koaladmin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/model.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/model.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/src/KoaladminServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/src/KoaladminServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,10 +178,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../strathmore/2020/cafeteria-mc/config/scout.php" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -220,7 +220,7 @@
       <workItem from="1607542231881" duration="20535000" />
       <workItem from="1607604231566" duration="33173000" />
       <workItem from="1607682281464" duration="2156000" />
-      <workItem from="1607685983703" duration="18477000" />
+      <workItem from="1607685983703" duration="28453000" />
     </task>
     <servers />
   </component>

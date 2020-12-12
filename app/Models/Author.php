@@ -3,6 +3,7 @@
 namespace App\Models;
 /* Imports */
 use DateTimeInterface;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 use Rennokki\QueryCache\Traits\QueryCacheable;
@@ -11,6 +12,7 @@ class Author extends Model
 {
     use Searchable;
     use QueryCacheable;
+    use HasFactory;
     //public $cacheFor=60*60*24; //cache for 1 day. Uncomment to enable cacheing.
     protected static $flushCacheOnUpdate=true; //invalidate the cache when the database is changed
     protected $fillable = [

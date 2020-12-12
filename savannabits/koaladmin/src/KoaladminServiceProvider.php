@@ -26,11 +26,16 @@ class KoaladminServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/koaladmin.php' => config_path('koaladmin.php'),
+                __DIR__.'/../config/scout.php' => config_path('scout.php'),
             ], 'koala-config');
 
             $this->publishes([
                 __DIR__.'/../publishes/koala_menu.json' => base_path('koala_menu.json'),
             ], 'koala-menu');
+
+            $this->publishes([
+                __DIR__.'/../publishes/storage/search-index' => storage_path('search-index'),
+            ], 'koala-search-index-dir');
 
             $this->publishes([
                 __DIR__.'/../publishes/routes/koaladmin.php' => base_path('routes/koaladmin.php'),
@@ -86,6 +91,7 @@ class KoaladminServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/koaladmin.php', 'koaladmin');
+        $this->mergeConfigFrom(__DIR__.'/../config/scout.php', 'scout');
 
         // Register the main class to use with the facade
         $this->app->singleton('koaladmin', function () {

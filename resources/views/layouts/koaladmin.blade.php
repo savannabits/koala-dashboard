@@ -17,6 +17,12 @@
           integrity="sha512-KNosrY5jkv7dI1q54vqk0N3x1xEmEn4sjzpU1lWL6bv5VVddcYKQVhHV08468FK6eBBSXTwGlMMZLPTXSpHYHA=="
           crossorigin="anonymous"/>
 
+    <!--Regular Datatables CSS-->
+    <link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
+    <!--Responsive Extension Datatables CSS-->
+    <link href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.dataTables.min.css" rel="stylesheet">
+    <!--Button Extension Datatables CSS-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @stack('styles')
@@ -44,6 +50,15 @@
         </main>
     </div>
 </div>
+<!-- Scripts -->
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!--Datatables -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.4/b-flash-1.6.4/b-html5-1.6.4/b-print-1.6.4/datatables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.6/js/dataTables.responsive.min.js"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 <script>
     function admin() {
         function getThemeFromLocalStorage() {
@@ -100,8 +115,6 @@
         }
     }
 </script>
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
 @stack('scripts')
 </body>
 </html>
