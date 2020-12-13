@@ -1,41 +1,39 @@
-@php echo "<?php"
-@endphp
-
+<?php
 
 use Carbon\Carbon;
 use Illuminate\Config\Repository;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
-class {{ $className }} extends Migration
+class FillPermissionsForAuthors extends Migration
 {
     /**
-     * {{'@'}}var Repository|mixed
+     * @var Repository|mixed
      */
     protected $guardName;
     /**
-     * {{'@'}}var array
+     * @var array
      */
     protected $permissions;
     /**
-     * {{'@'}}var array
+     * @var array
      */
     protected $roles;
 
     /**
-     * {{ $className }} constructor.
+     * FillPermissionsForAuthors constructor.
      */
     public function __construct()
     {
         $this->guardName = "web";
 
         $permissions = collect([
-            '{{ $modelDotNotation }}',
-            '{{ $modelDotNotation }}.index',
-            '{{ $modelDotNotation }}.create',
-            '{{ $modelDotNotation }}.show',
-            '{{ $modelDotNotation }}.edit',
-            '{{ $modelDotNotation }}.delete',
+            'authors',
+            'authors.index',
+            'authors.create',
+            'authors.show',
+            'authors.edit',
+            'authors.delete',
         ]);
 
         //Add New permissions
@@ -61,7 +59,7 @@ class {{ $className }} extends Migration
     /**
      * Run the migrations.
      *
-     * {{'@'}}return void
+     * @return void
      */
     public function up(): void
     {
@@ -118,7 +116,7 @@ class {{ $className }} extends Migration
     /**
      * Reverse the migrations.
      *
-     * {{'@'}}return void
+     * @return void
      */
     public function down(): void
     {

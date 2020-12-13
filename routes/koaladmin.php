@@ -31,3 +31,14 @@ Route::group(["prefix" => config('koaladmin.prefix',''),
         Route::get('',[App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('index');
     });
 });
+
+
+/* Auto-generated admin routes */
+
+Route::group(["prefix" => config('koaladmin.prefix',''),
+    "namespace" => "Admin",
+    "as" => config('koaladmin.prefix').".",'middleware' => ['auth','verified']],function() {
+    Route::group(['as' => "roles.", 'prefix' => "roles"], function() {
+        Route::get('',[App\Http\Controllers\Admin\RoleController::class, 'index'])->name('index');
+    });
+});

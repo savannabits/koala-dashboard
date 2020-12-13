@@ -1,4 +1,28 @@
 @extends('layouts.koaladmin')
+@php
+$columns = [
+            [
+                "data" => "id",
+                "name" => "id",
+                "title" => "Id"
+            ],
+            [
+                "data" => "name",
+                "name" => "name",
+                "title" => "Name"
+            ],
+            [
+                "data" => "activated",
+                "name" => "activated",
+                "title" => "Enabled"
+            ],
+            [
+                "data" => "updated_at",
+                "name" => "updated_at",
+                "title" => "Updated At"
+            ],
+    ];
+@endphp
 @section('content')
     <div class="container grid px-6 mx-auto">
         <h2
@@ -664,7 +688,7 @@
             </div>
         </div>
         <x-card class="mb-5" headerBackground="bg-primary-lighter" title="Datatables">
-            <table id="example" class="stripe hover">
+            <table id="example" class="stripe hover w-full">
                 <thead>
                 <tr>
                     <th data-priority="1">Name</th>
@@ -855,6 +879,17 @@
                 </tr>
                 </tbody>
             </table>
+        </x-card>
+        <x-card title="SSR Datatable" class="my-4 shadow-xl" headerBackground="bg-danger-lighter">
+            <x-koala.datatable
+                tableId="authors-dt"
+                ajaxUrl="{{route('api.authors.dt')}}"
+                :columns="$columns"
+            >
+                <x-slot name="tableheader">
+                    <button class="btn bg-secondary py-2" @click="$dispatch('refresh-dt','authors-dt')"><i class="fas fa-redo"></i></button>
+                </x-slot>
+            </x-koala.datatable>
         </x-card>
     </div>
 @endsection

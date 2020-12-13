@@ -27,6 +27,7 @@ class KoaladminServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/koaladmin.php' => config_path('koaladmin.php'),
                 __DIR__.'/../config/scout.php' => config_path('scout.php'),
+                __DIR__.'/../config/sanctum.php' => config_path('sanctum.php'),
             ], 'koala-config');
 
             $this->publishes([
@@ -92,6 +93,7 @@ class KoaladminServiceProvider extends ServiceProvider
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/koaladmin.php', 'koaladmin');
         $this->mergeConfigFrom(__DIR__.'/../config/scout.php', 'scout');
+        $this->mergeConfigFrom(__DIR__.'/../config/sanctum.php', 'sanctum');
 
         // Register the main class to use with the facade
         $this->app->singleton('koaladmin', function () {

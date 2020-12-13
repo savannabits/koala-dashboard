@@ -57,7 +57,7 @@ class ApiRoutes extends FileAppender {
             $this->view = 'templates.'.$template.'.routes';
         }
 
-        if ($this->appendIfNotAlreadyAppended(base_path('routes/api.php'), PHP_EOL.PHP_EOL.$this->buildClass())){
+        if ($this->appendIfNotAlreadyAppended(base_path('routes/api.php'), PHP_EOL.PHP_EOL.$this->buildClass(true))){
             $this->info('Appending API routes finished');
         }
     }
@@ -65,6 +65,7 @@ class ApiRoutes extends FileAppender {
     protected function buildClass($api=false) {
         return view('koala::'.$this->view, [
             'controllerClassName' => class_basename($this->controllerWithNamespaceFromDefault),
+            'controllerFullName' => $this->controllerFullName,
             'controllerPartiallyFullName' => $this->controllerWithNamespaceFromDefault,
             'modelRouteName' => Str::plural($this->modelRouteAndViewName),
             'modelVariableName' => $this->modelVariableName,

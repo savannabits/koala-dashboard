@@ -6,7 +6,7 @@
 }
 @layer components {
     .btn {
-        @apply bg-gray-100 hover:bg-gray-800 hover:text-gray-200 shadow;
+        @apply hover:bg-gray-800 hover:text-gray-200 shadow;
         padding: 15px;
         border-radius: 5px;
     }

@@ -20,22 +20,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 /* Auto-generated authors api routes */
-Route::group(['prefix' => config('koaladmin.prefix',''),'as' => 'api.', 'namespace' => "Api"], function() {
-    Route::group(['middleware' => ["auth:sanctum","verified"]], function() {
+Route::group(['as' => 'api.'], function() {
+    Route::group(['middleware' => ["auth:sanctum"]], function() {
         Route::group(['prefix' => "authors", 'as' => 'authors.'],function() {
-            Route::get("dt", "AuthorController@dt")->name('dt');
+            Route::get("dt", [App\Http\Controllers\Api\AuthorController::class,'dt'])->name('dt');
         });
-        Route::apiResource('authors',"AuthorController")->parameters(["authors" => "author"]);
+        Route::apiResource('authors',App\Http\Controllers\Api\AuthorController::class)->parameters(["authors" => "author"]);
     });
 });
 
 
-/* Auto-generated articles api routes */
-Route::group(['prefix' => config('koaladmin.prefix',''),'as' => 'api.', 'namespace' => "Api"], function() {
-    Route::group(['middleware' => ["auth:sanctum","verified"]], function() {
-        Route::group(['prefix' => "articles", 'as' => 'articles.'],function() {
-            Route::get("dt", "ArticleController@dt")->name('dt');
+/* Auto-generated roles api routes */
+Route::group(['as' => 'api.'], function() {
+    Route::group(['middleware' => ["auth:sanctum"]], function() {
+        Route::group(['prefix' => "roles", 'as' => 'roles.'],function() {
+            Route::get("dt", [App\Http\Controllers\Api\RoleController::class,'dt'])->name('dt');
         });
-        Route::apiResource('articles',"ArticleController")->parameters(["articles" => "article"]);
+        Route::apiResource('roles',App\Http\Controllers\Api\RoleController::class)->parameters(["roles" => "role"]);
     });
 });

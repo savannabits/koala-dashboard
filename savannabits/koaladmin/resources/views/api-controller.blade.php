@@ -45,9 +45,9 @@ class {{ $controllerBaseName }}  extends Controller
         return DataTables::of({{$modelBaseName}}::query())
             ->addColumn("actions",function($model) {
                 $actions = '';
-                if (\Auth::user()->can('{{$modelRouteAndViewName}}.show')) $actions .= '<button class="btn bg-primary mr-2" title="View Details" data-action="show-{{Str::singular($modelRouteAndViewName)}}" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-eye"></i></button>';
-                if (\Auth::user()->can('{{$modelRouteAndViewName}}.edit')) $actions .= '<button class="btn bg-warning mr-2" title="Edit Item" data-action="edit-{{Str::singular($modelRouteAndViewName)}}" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-edit"></i></button>';
-                if (\Auth::user()->can('{{$modelRouteAndViewName}}.delete')) $actions .= '<button class="btn bg-danger mr-2" title="Delete Item" data-action="delete-{{Str::singular($modelRouteAndViewName)}}" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-trash"></i></button>';
+                if (\Auth::user()->can('{{$modelRouteAndViewName}}.show')) $actions .= '<button class="btn bg-primary-lighter p-2 mr-2" title="View Details" data-action="show-{{Str::singular($modelRouteAndViewName)}}" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-eye"></i></button>';
+                if (\Auth::user()->can('{{$modelRouteAndViewName}}.edit')) $actions .= '<button class="btn bg-warning-lighter p-2 mr-2" title="Edit Item" data-action="edit-{{Str::singular($modelRouteAndViewName)}}" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-edit"></i></button>';
+                if (\Auth::user()->can('{{$modelRouteAndViewName}}.delete')) $actions .= '<button class="btn bg-danger-lighter p-2 mr-2" title="Delete Item" data-action="delete-{{Str::singular($modelRouteAndViewName)}}" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-trash"></i></button>';
                 return $actions;
             })
             ->rawColumns(['actions'])

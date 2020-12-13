@@ -26,5 +26,14 @@
         "permission_name": "articles",
         "has_children": false,
         "children": []
+    },
+    {
+        "slug": "roles",
+        "title": "Roles",
+        "icon_class": "fas fa-folder ml-auto",
+        "route_name": "admin.roles.index",
+        "permission_name": "roles",
+        "has_children": false,
+        "children": []
     }
 ]

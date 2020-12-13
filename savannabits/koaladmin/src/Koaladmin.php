@@ -112,11 +112,11 @@ class Koaladmin extends Command
         ]);*/
 
 
-        /*$this->call('koala:generate:form', [
+        $this->call('koala:generate:form', [
             'table_name' => $tableNameArgument,
             '--model-name' => $modelOption,
             '--force' => $force,
-        ]);*/
+        ]);
 
         /*
         $this->call('koala:generate:lang', [
@@ -135,7 +135,7 @@ class Koaladmin extends Command
 
         */
 
-        /*if ($this->shouldGeneratePermissionsMigration()) {
+        if ($this->shouldGeneratePermissionsMigration()) {
             $this->call('koala:generate:permissions', [
                 'table_name' => $tableNameArgument,
                 '--model-name' => $modelOption,
@@ -146,7 +146,7 @@ class Koaladmin extends Command
             if ($this->option('no-interaction') || $this->confirm('Do you want to attach generated permissions to the default role now?', true)) {
                 $this->call('migrate');
             }
-        }*/
+        }
 
         $this->info('Generating whole admin CRUD module finished');
     }

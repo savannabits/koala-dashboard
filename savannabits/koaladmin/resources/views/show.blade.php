@@ -1,22 +1,32 @@
+@php
+echo "@props(['payload' => []])".PHP_EOL
+@endphp
+<div x-data="show{{$modelBaseName}}Form()">
 @foreach($columns as $column)
-<b-card v-if="form.{{$column['name']}}" no-body>
-    <b-card-title class="font-weight-bolder card-title p-1 m-1">{{$column['label']}}</b-card-title>
-    <span class="p-1 m-1">
-        @php
-echo '@{{ form.'.$column['name'].'}}';
-        @endphp
-    </span>
-</b-card>
+    <template x-if="payload.{{$column['name']}}" >
+        <x-card>
+            <h4 class="font-black text-primary my-1">{{$column['label']}}</h4>
+            <p class="font-semibold my-1" x-html="payload.{{$column['name']}}"></p>
+        </x-card>
+    </template>
 @endforeach
 @if (isset($relations['belongsTo']) && count($relations["belongsTo"]))
-@foreach($relations["belongsTo"] as $parent)
-<b-card v-if="form.{{$parent['relationship_variable']}}" no-body>
-    <b-card-title class="font-weight-bolder card-title p-1 m-1">{{$parent['related_model_title']}}</b-card-title>
-    <span class="p-1 m-1">
-    @php
-echo '@{{ form.'.$parent['relationship_variable'].'.'.$parent["label_column"].'}}';
-    @endphp
-    </span>
-</b-card>
-@endforeach
+    @foreach($relations["belongsTo"] as $parent)
+        <template x-if="payload.{{$parent['relationship_variable']}}">
+            <x-card>
+                <h4 class="font-black my-1">{{$parent['related_model_title']}}</h4>
+                <p class="font-semibold my-1" x-html="payload.'.{{$parent['relationship_variable']}}.'.'.{{$parent["label_column"]}}.'"></p>
+            </x-card>
+        </template>
+    @endforeach
 @endif
+</div>
+{{'@'}}push('scripts')
+    {!! '<script>' !!}
+        function show{{$modelBaseName}}Form() {
+            return {
+                payload: JSON.parse({{'{'}}!! json_encode($payload) !!{{'}'}}),
+            }
+        }
+    {!! '</script>' !!}
+{{'@'}}endpush

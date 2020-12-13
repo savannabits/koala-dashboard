@@ -101,13 +101,11 @@ abstract class ClassGenerator extends Command {
     public function qualifyClass($name)
     {
         $name = str_replace('/', '\\', $name);
-
         $rootNamespace = $this->rootNamespace();
 
         if (Str::startsWith($name, $rootNamespace)) {
             return $name;
         }
-
         return $this->qualifyClass(
             $this->getDefaultNamespace(trim($rootNamespace, '\\')).'\\'.$name
         );

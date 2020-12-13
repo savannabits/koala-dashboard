@@ -15,7 +15,8 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "savannabits/koaladmin": "dev-develop",
-        "spatie/menu": "^2.10"
+        "spatie/menu": "^2.10",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.8",

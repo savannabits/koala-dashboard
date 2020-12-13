@@ -1,5 +1,7 @@
 <?php namespace Savannabits\Koaladmin\Generators\Traits;
 
+use Savannabits\Koaladmin\Generators\ApiController;
+use Savannabits\Koaladmin\Generators\ApiRoutes;
 use Savannabits\Koaladmin\Generators\Controller;
 use Savannabits\Koaladmin\Generators\Model;
 use Illuminate\Support\Str;
@@ -75,8 +77,15 @@ trait Names
 
         if ($this instanceof Controller) {
             $controllerGenerator = $this;
-        } else {
-            $controllerGenerator = app(Controller::class);
+        } elseif($this instanceof ApiController) {
+            $controllerGenerator = $this;
+        }
+        else {
+            if ($this instanceof ApiRoutes) {
+                $controllerGenerator = app(ApiController::class);
+            } else {
+                $controllerGenerator = app(Controller::class);
+            }
             $controllerGenerator->setLaravel($this->laravel);
         }
 

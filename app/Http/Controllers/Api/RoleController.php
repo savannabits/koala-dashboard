@@ -1,11 +1,10 @@
 <?php
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Author\IndexAuthor;
-use App\Http\Requests\Api\Author\StoreAuthor;
-use App\Http\Requests\Api\Author\UpdateAuthor;
-use App\Models\Author;
-use Illuminate\Auth\Access\AuthorizationException;
+use App\Http\Requests\Api\Role\IndexRole;
+use App\Http\Requests\Api\Role\StoreRole;
+use App\Http\Requests\Api\Role\UpdateRole;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -13,7 +12,7 @@ use Savannabits\Koaladmin\Helpers\ApiResponse;
 use Savannabits\Koaladmin\Helpers\SavbitsHelper;
 use Yajra\DataTables\Facades\DataTables;
 
-class AuthorController  extends Controller
+class RoleController  extends Controller
 {
     private $api, $helper;
     public function __construct(ApiResponse $apiResponse, SavbitsHelper $helper)
@@ -27,22 +26,22 @@ class AuthorController  extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index(IndexAuthor $request)
+    public function index(IndexRole $request)
     {
-        $data = $this->helper::listing(Author::class, $request)->customQuery(function ($builder) use($request) {
-        /**@var  Author|Builder $builder*/
+        $data = $this->helper::listing(Role::class, $request)->customQuery(function ($builder) use($request) {
+        /**@var  Role|Builder $builder*/
         // Add custom queries here
         })->process();
-        return $this->api->success()->message("List of Authors")->payload($data)->send();
+        return $this->api->success()->message("List of Roles")->payload($data)->send();
     }
 
     public function dt(Request $request) {
-        return DataTables::of(Author::query())
+        return DataTables::of(Role::query())
             ->addColumn("actions",function($model) {
                 $actions = '';
-                if (\Auth::user()->can('authors.show')) $actions .= '<button class="action-button btn bg-primary p-2 py-1 rounded-none mr-2" title="View Details" data-action="show-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-eye"></i></button>';
-                if (\Auth::user()->can('authors.edit')) $actions .= '<button class="action-button btn bg-warning p-2 py-1 rounded-none mr-2" title="Edit Item" data-action="edit-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-edit"></i></button>';
-                if (\Auth::user()->can('authors.delete')) $actions .= '<button class="action-button btn bg-danger p-2 py-1 rounded-none mr-2" title="Delete Item" data-action="delete-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-trash"></i></button>';
+                if (\Auth::user()->can('roles.show')) $actions .= '<button class="btn bg-primary mr-2" title="View Details" data-action="show-role" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-eye"></i></button>';
+                if (\Auth::user()->can('roles.edit')) $actions .= '<button class="btn bg-warning mr-2" title="Edit Item" data-action="edit-role" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-edit"></i></button>';
+                if (\Auth::user()->can('roles.delete')) $actions .= '<button class="btn bg-danger mr-2" title="Delete Item" data-action="delete-role" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-trash"></i></button>';
                 return $actions;
             })
             ->rawColumns(['actions'])
@@ -52,21 +51,21 @@ class AuthorController  extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param StoreAuthor $request
+     * @param StoreRole $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(StoreAuthor $request)
+    public function store(StoreRole $request)
     {
         try {
             $array = $request->sanitizedArray();
-            $author = new Author($array);
-
+            $role = new Role($array);
+            
             // Save Relationships
             $object = $request->sanitizedObject();
+                        
 
-
-            $author->saveOrFail();
-            return $this->api->success()->message('Author Created')->payload($author)->send();
+            $role->saveOrFail();
+            return $this->api->success()->message('Role Created')->payload($role)->send();
         } catch (\Throwable $exception) {
             \Log::error($exception);
             return $this->api->failed()->message($exception->getMessage())->payload([])->code(500)->send();
@@ -77,14 +76,14 @@ class AuthorController  extends Controller
      * Display the specified resource.
      *
      * @param Request $request
-     * @param Author $author
+     * @param Role $role
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show(Request $request, Author $author)
+    public function show(Request $request, Role $role)
     {
         try {
             //Fetch relationships
-                        return $this->api->success()->message("Author $author->id")->payload($author)->send();
+                        return $this->api->success()->message("Role $role->id")->payload($role)->send();
         } catch (\Throwable $exception) {
             return $this->api->failed()->message($exception->getMessage())->send();
         }
@@ -93,22 +92,22 @@ class AuthorController  extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param UpdateAuthor $request
-     * @param {$modelBaseName} $author
+     * @param UpdateRole $request
+     * @param {$modelBaseName} $role
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(UpdateAuthor $request, Author $author)
+    public function update(UpdateRole $request, Role $role)
     {
         try {
             $data = $request->sanitizedArray();
-            $author->update($data);
-
+            $role->update($data);
+            
             // Save Relationships
                 $object = $request->sanitizedObject();
+                
 
-
-            $author->saveOrFail();
-            return $this->api->success()->message("Author has been updated")->payload($author)->code(200)->send();
+            $role->saveOrFail();
+            return $this->api->success()->message("Role has been updated")->payload($role)->code(200)->send();
         } catch (\Throwable $exception) {
             \Log::error($exception);
             return $this->api->failed()->code(400)->message($exception->getMessage())->send();
@@ -118,20 +117,20 @@ class AuthorController  extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Author $author
+     * @param Role $role
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function destroy(Request $request, Author $author)
+    public function destroy(Request $request, Role $role)
     {
         try {
-            $this->authorize('authors.delete');
-            $author->delete();
-            return $this->api->success()->message("Author has been deleted")->payload($author)->code(200)->send();
-        } catch(AuthorizationException $exception) {
+            $request->authorize('delete',$role);
+            $role->delete();
+            return $this->api->success()->message("Role has been deleted")->payload($role)->code(200)->send();
+        } catch(AuthorizationException $e) {
             \Log::error($exception);
             return $this->api->failed()->code(403)->message($exception->getMessage())->send();
-        } catch(\Throwable $exception) {
+        } catch(\Throwable $e) {
             \Log::error($exception);
             return $this->api->failed()->code(400)->message($exception->getMessage())->send();
         }
