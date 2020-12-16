@@ -1,83 +1,134 @@
-{{"@"}}extends('layouts.backend')
-{{"@"}}push('styles')
-{{"@"}}endpush
-
+{{"@"}}extends('layouts.koaladmin')
 {{"@"}}section('content')
-    <div class="container-fluid">
-        <{{$modelJSName}}-component
-            table-id="{{$modelJSName}}-dt"
-            form-dialog-ref="{{$modelVariableName}}FormDialog"
-            details-dialog-ref="{{$modelVariableName}}DetailsDialog"
-            delete-dialog-ref="{{$modelVariableName}}DeleteDialog"
-            app-url="@{{config('app.url')}}"
-@if(config('savadmin.tenancy.use_tenancy'))
-            tenant="@{{ tenant('id') }}"
-            tenant-header-name="@{{ config('savadmin.tenancy.header_name') }}"
-            tenant-query-param="@{{ config('savadmin.tenancy.query_parameter_name') }}"
-            @endif
-@php
-            echo 'api-route="{{route(\'api.'.$modelRouteAndViewName.'.index\')}}"'.PHP_EOL;
-            @endphp
-            v-cloak inline-template
-        >
-            <b-row>
-                <b-col>
-                    <b-card title="{{\Illuminate\Support\Str::pluralStudly($modelTitle)}} List">
-                        <div class="text-right mb-2">
-                            {{'@'}}can('{{$modelRouteAndViewName}}.create')<b-button v-on:click="showFormDialog()" variant="primary"><i class="mdi mdi-plus"></i> New {{$modelTitle}}</b-button>
-                            {{'@'}}endcan
-                        </div>
-                        {{'@'}}can('{{$modelRouteAndViewName}}.index')
-                        <dt-component table-id="{{$modelRouteAndViewName}}-dt"
-                                      @php
-                                      echo 'ajax-url="{{route(\'api.'.$modelRouteAndViewName.'.dt\')}}"'.PHP_EOL
-                                      @endphp
-                                      v-cloak
-                                      :columns="@{{json_encode($columns)}}"
-                                      table-classes="table table-hover"
-@if(config('savadmin.tenancy.use_tenancy'))
-                                      tenant="@{{ tenant('id') }}"
-                                      tenant-header-name="@{{ config('savadmin.tenancy.header_name') }}"
-                                      tenant-query-param="@{{ config('savadmin.tenancy.query_parameter_name') }}"
-@endif
-                                      v-on:edit-{{str_singular($modelRouteAndViewName)}}="showFormDialog"
-                                      v-on:show-{{str_singular($modelRouteAndViewName)}}="showDetailsDialog"
-                                      v-on:delete-{{str_singular($modelRouteAndViewName)}}="showDeleteDialog"
-                        ></dt-component>
-                        {{'@'}}endcan
-                    </b-card>
-                    {{'@'}}canany(['{{$modelRouteAndViewName}}.create','{{$modelRouteAndViewName}}.edit'])
-                    <b-modal size="lg" v-if="form" v-on:ok.prevent="onFormSubmit" no-close-on-backdrop v-cloak ref="{{$modelVariableName}}FormDialog">
-                        <template v-slot:modal-title>
-                            <h4 v-if="form.id" class="font-weight-bolder">Edit {{$modelTitle}} @@{{ form.id }}</h4>
-                            <h4 v-else class="font-weight-bolder">Create New {{$modelTitle}}</h4>
-                        </template>
-                        <template v-slot:default="{ ok, cancel }">
-                            {{"@"}}include("backend.{{$modelJSName}}.form")
-                        </template>
-                    </b-modal>
-                    {{'@'}}endcanany
-                    {{'@'}}can('{{$modelRouteAndViewName}}.show')
-                    <b-modal size="lg" v-if="form" scrollable v-cloak ref="{{$modelVariableName}}DetailsDialog">
-                        {{"@"}}include('backend.{{$modelJSName}}.show')
-                    </b-modal>
-                    {{'@'}}endcan
-                    {{'@'}}can('{{$modelRouteAndViewName}}.delete')
-                    <b-modal size="sm" v-on:ok.prevent="deleteItem" hide-footer hide-header body-bg-variant="danger" body-text-variant="light" centered v-if="form" scrollable v-cloak ref="{{$modelVariableName}}DeleteDialog">
-                        <template v-slot:default="{ok,hide}">
-                            Are you sure you want to delete this {{$modelTitle}}?
-                            <div class="text-right">
-                                <b-button v-on:click="hide()" variant="light">No</b-button>
-                                <b-button v-on:click="ok()" variant="primary">Yes</b-button>
-                            </div>
-                        </template>
-                    </b-modal>
-                    {{'@'}}endcan
-                </b-col>
-            </b-row>
-        </{{$modelJSName}}-component>
+    <div x-data="{{$modelVariableNamePlural}}()"
+         x-on:show-{{$modelJSNameSingular}}.window="show{{$modelBaseName}}(event.detail)"
+         x-on:edit-{{$modelJSNameSingular}}.window="edit{{$modelBaseName}}(event.detail)"
+         x-on:delete-{{$modelJSNameSingular}}.window="confirmDelete{{$modelBaseName}}(event.detail)"
+         class="sm:container px-2 mx-auto"
+    >
+        <div class="flex justify-between items-center">
+            <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">List of {{$modelTitlePlural}}</h2>
+            {{'@'}}can('{{$modelRouteAndViewName}}.create')
+            <button type="button" x-on:click="create{{$modelBaseName}}" class="btn p-2 text-current bg-primary text-gray-50 rounded">
+                <i class="fas fa-plus mr-2"></i>Create New {{$modelTitle}}
+            </button>
+            {{'@'}}endcan
+        </div>
+        {{'@'}}can('{{$modelRouteAndViewName}}.index')
+            <{{'x-card'}}>
+                <{{'x-koala'}}.datatable
+                    tableId="{{$modelRouteAndViewName}}-dt"
+                    :ajaxUrl="route('api.{{$modelRouteAndViewName}}.dt')"
+                    :columns="$columns"
+                >
+                </{{'x-koala'}}.datatable>
+            </{{'x-card'}}>
+        {{'@'}}endcan
+
+        {{'@'}}can('{{$modelRouteAndViewName}}.show')
+        <{{'x-koala'}}.modal size="2xl" class="text-primary bg-secondary" id="show-{{$modelJSNameSingular}}-modal">
+            <{{'x-slot'}} name="title">
+                <span x-text="`Details for {{$modelTitle}} #${payload?.id}`"></span>
+            </{{'x-slot'}}>
+            {{'@'}}include('koaladmin.{{$modelRouteAndViewName}}.show')
+        </{{'x-koala'}}.modal>
+        {{'@'}}endcan
+
+        {{'@'}}can('{{$modelRouteAndViewName}}.create')
+        <form id="{{$modelJSNameSingular}}-create-form" novalidate x-on:submit.prevent="store{{$modelBaseName}}">
+            <{{'x-koala'}}.modal size="2xl" class="text-primary" id="create-{{$modelJSNameSingular}}-modal">
+                <{{'x-slot'}} name="title">
+                    <h2 x-text="`Create New {{$modelTitle}}`"></h2>
+                </{{'x-slot'}}>
+                {{'@'}}include('koaladmin.{{$modelRouteAndViewName}}.create')
+                <{{'x-slot'}} name="footer">
+                    <button type="submit" class="btn py-2 ml-2 bg-success">Submit</button>
+                </{{'x-slot'}}>
+            </{{'x-koala'}}.modal>
+        </form>
+        {{'@'}}endcan
+
+        {{'@'}}can('{{$modelRouteAndViewName}}.edit')
+        <form id="{{$modelJSNameSingular}}-edit-form" x-on:submit.prevent="update{{$modelBaseName}}">
+            <{{'x-koala'}}.modal size="2xl" class="text-primary" id="edit-{{$modelJSNameSingular}}-modal">
+                <{{'x-slot'}} name="title">
+                    <span x-text="`Edit {{$modelTitle}} #${payload?.id}`"></span>
+                </{{'x-slot'}}>
+                {{'@'}}include('koaladmin.{{$modelRouteAndViewName}}.edit')
+                <{{'x-slot'}} name="footer">
+                    <button type="submit" class="btn py-2 ml-2 bg-success">Submit</button>
+                </{{'x-slot'}}>
+            </{{'x-koala'}}.modal>
+        </form>
+        {{'@'}}endcan
+
+        {{'@'}}can('{{$modelRouteAndViewName}}.delete')
+        <form x-on:submit.prevent="delete{{$modelBaseName}}">
+            <{{'x-koala'}}.modal size="xl" centered class="text-danger bg-danger-lighter" id="delete-{{$modelJSNameSingular}}-modal">
+                <{{'x-slot'}} name="title">
+                    <span class="text-danger" x-text="`Delete {{$modelTitle}} #${payload?.id}?`"></span>
+                </{{'x-slot'}}>
+                <p class="text-danger font-semibold">
+                    Are you sure you want to delete this {{$modelTitle}}?
+                </p>
+                <{{'x-slot'}} name="footer">
+                    <button type="submit" class="btn py-2 ml-2 bg-danger">Yes, Delete</button>
+                </{{'x-slot'}}>
+            </{{'x-koala'}}.modal>
+        </form>
+        {{'@'}}endcan
     </div>
 {{"@"}}endsection
 
+{{"@"}}push('styles')
+{{"@"}}endpush
+
 {{"@"}}push('scripts')
+<{{'script'}}>
+    function {{$modelVariableNamePlural}}() {
+        return {
+            payload: {},
+            form: {},
+            created() {
+                return this.mounted()
+            },
+            mounted() {
+                /* Component is mounted and DOM is ready */
+            },
+            async create{{$modelBaseName}}() {
+                this.payload = {};
+                MicroModal.show('create-author-modal');
+            },
+            async show{{$modelBaseName}}(id) {
+                this.payload = {};
+                let res = await apiFetch(`{{'{{'}}route('api.authors.index')}}/${id}`);
+                this.payload = res.payload;
+                MicroModal.show('show-{{$modelJSNameSingular}}-modal');
+            },
+            async edit{{$modelBaseName}}(id) {
+                this.payload = {};
+                let res = await apiFetch(`{{'{{'}}route('api.authors.index')}}/${id}`);
+                this.payload = res.payload;
+                MicroModal.show('edit-{{$modelJSNameSingular}}-modal');
+            },
+            confirmDelete{{$modelBaseName}}(id) {
+                this.payload.id = id;
+                MicroModal.show('delete-{{$modelJSNameSingular}}-modal');
+            },
+            async delete{{$modelBaseName}}() {
+                console.log('Submitting delete request')
+                let res = await apiSend(`{{'{{'}}route('api.authors.index')}}/${this.payload.id}`,{},'delete');
+                if (res?.success) {
+                    alert(res?.message);
+                    MicroModal.close('delete-{{$modelJSNameSingular}}-modal');
+                    this.payload = {};
+                    dispatchAlpineEvent('refresh-dt','{{$modelRouteAndViewName}}-dt')
+                }
+            },
+            async update{{$modelBaseName}}() {
+                console.log("TODO: Implement this");
+            }
+        }
+    }
+</{{'script'}}>
 {{"@"}}endpush

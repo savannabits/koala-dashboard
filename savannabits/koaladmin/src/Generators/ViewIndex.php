@@ -67,7 +67,7 @@ class ViewIndex extends ViewGenerator {
             $this->viewJs = 'templates.'.$template.'.listing-js';
         }
 
-        $viewPath = resource_path('views/backend/'.$this->modelViewsDirectory.'/index.blade.php');
+        $viewPath = resource_path('views/koaladmin/'.$this->modelViewsDirectory.'/index.blade.php');
         $listingJsPath = resource_path('js/backend/'.$this->modelJSName.'.js');
         $indexJsPath = resource_path('js/backend/index.js');
 
@@ -118,7 +118,9 @@ class ViewIndex extends ViewGenerator {
             'modelPlural' => $this->modelPlural,
             'modelViewsDirectory' => $this->modelViewsDirectory,
             'modelJSName' => $this->modelJSName,
+            'modelJSNameSingular' => Str::singular($this->modelJSName),
             'modelVariableName' => $this->modelVariableName,
+            'modelVariableNamePlural' => Str::plural($this->modelVariableName),
             'modelDotNotation' => $this->modelDotNotation,
             'modelLangFormat' => $this->modelLangFormat,
             'modelTitle' => $this->titleSingular,

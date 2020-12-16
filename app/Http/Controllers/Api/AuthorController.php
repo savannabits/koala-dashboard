@@ -40,9 +40,9 @@ class AuthorController  extends Controller
         return DataTables::of(Author::query())
             ->addColumn("actions",function($model) {
                 $actions = '';
-                if (\Auth::user()->can('authors.show')) $actions .= '<button class="action-button btn bg-primary p-2 py-1 rounded-none mr-2" title="View Details" data-action="show-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-eye"></i></button>';
-                if (\Auth::user()->can('authors.edit')) $actions .= '<button class="action-button btn bg-warning p-2 py-1 rounded-none mr-2" title="Edit Item" data-action="edit-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-edit"></i></button>';
-                if (\Auth::user()->can('authors.delete')) $actions .= '<button class="action-button btn bg-danger p-2 py-1 rounded-none mr-2" title="Delete Item" data-action="delete-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-trash"></i></button>';
+                if (\Auth::user()->can('authors.show')) $actions    .= '<button class="action-button btn shadow-none border p-2 py-1 rounded-none mr-2 text-primary border-primary hover:bg-primary hover:text-gray-200" title="View Details" data-action="show-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-eye"></i></button>';
+                if (\Auth::user()->can('authors.edit')) $actions    .= '<button class="action-button btn shadow-none border p-2 py-1 rounded-none mr-2 text-warning border-warning hover:bg-warning hover:text-gray-200" title="Edit Item" data-action="edit-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-edit"></i></button>';
+                if (\Auth::user()->can('authors.delete')) $actions  .= '<button class="action-button btn shadow-none border p-2 py-1 rounded-none mr-2 text-danger border-danger hover:bg-danger hover:text-gray-200" title="Delete Item" data-action="delete-author" data-tag="button" data-id="'.$model->id.'"><i class="fas fa-trash"></i></button>';
                 return $actions;
             })
             ->rawColumns(['actions'])

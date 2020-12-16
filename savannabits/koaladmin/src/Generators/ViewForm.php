@@ -79,7 +79,7 @@ class ViewForm extends ViewGenerator {
             $this->setBelongToManyRelation($belongsToMany);
         }
 
-        $viewPath = resource_path('views/backend/'.$this->modelViewsDirectory.'/form.blade.php');
+        $viewPath = resource_path('views/koaladmin/'.$this->modelViewsDirectory.'/form.blade.php');
         if ($this->alreadyExists($viewPath) && !$force) {
             $this->error('File '.$viewPath.' already exists!');
         } else {
@@ -95,7 +95,7 @@ class ViewForm extends ViewGenerator {
             $this->info('Generating '.$viewPath.' finished');
         }
 
-        $viewPath = resource_path('views/backend/'.$this->modelViewsDirectory.'/show.blade.php');
+        $viewPath = resource_path('views/koaladmin/'.$this->modelViewsDirectory.'/show.blade.php');
         if ($this->alreadyExists($viewPath) && !$force) {
             $this->error('File '.$viewPath.' already exists!');
         } else {
@@ -111,27 +111,36 @@ class ViewForm extends ViewGenerator {
             $this->info('Generating '.$viewPath.' finished');
         }
 
-        $formJsPath = resource_path('js/backend/'.$this->modelJSName.'.js');
-
-        if ($this->alreadyExists($formJsPath) && !$force) {
-            $this->error('File '.$formJsPath.' already exists!');
+        $viewPath = resource_path('views/koaladmin/'.$this->modelViewsDirectory.'/create.blade.php');
+        if ($this->alreadyExists($viewPath) && !$force) {
+            $this->error('File '.$viewPath.' already exists!');
         } else {
-            if ($this->alreadyExists($formJsPath) && $force) {
-                $this->warn('File '.$formJsPath.' already exists! File will be deleted.');
-                $this->files->delete($formJsPath);
+            if ($this->alreadyExists($viewPath) && $force) {
+                $this->warn('File '.$viewPath.' already exists! File will be deleted.');
+                $this->files->delete($viewPath);
             }
 
-            $this->makeDirectory($formJsPath);
+            $this->makeDirectory($viewPath);
 
-            $this->files->put($formJsPath, $this->buildFormJs());
-            $this->info('Generating '.$formJsPath.' finished');
+            $this->files->put($viewPath, $this->buildForm());
+
+            $this->info('Generating '.$viewPath.' finished');
         }
+        $viewPath = resource_path('views/koaladmin/'.$this->modelViewsDirectory.'/edit.blade.php');
+        if ($this->alreadyExists($viewPath) && !$force) {
+            $this->error('File '.$viewPath.' already exists!');
+        } else {
+            if ($this->alreadyExists($viewPath) && $force) {
+                $this->warn('File '.$viewPath.' already exists! File will be deleted.');
+                $this->files->delete($viewPath);
+            }
 
-		$indexJsPath = resource_path('js/backend/index.js');
+            $this->makeDirectory($viewPath);
 
-		if ($this->appendIfNotAlreadyAppended($indexJsPath, "Vue.component('".$this->modelJSName."-component', () => import(/*webpackChunkName: 'js/".$this->modelJSName."-component'*/'./".$this->modelJSName."'));".PHP_EOL)){
-			$this->info('Appending Form to '.$indexJsPath.' finished');
-		};
+            $this->files->put($viewPath, $this->buildForm());
+
+            $this->info('Generating '.$viewPath.' finished');
+        }
     }
 
     protected function isUsedTwoColumnsLayout() : bool {

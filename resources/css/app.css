@@ -10,6 +10,19 @@
         padding: 15px;
         border-radius: 5px;
     }
+    /*Match bootstrap form styling for validation*/
+    .form-group.has-error .form-select, .form-group.has-error .form-input, .form-group.has-error .form-checkbox {
+        @apply bg-red-50 border-red-500 text-red-500
+    }
+    .form-group.has-success .form-select, .form-group.has-success .form-input, .form-group.has-success .form-checkbox {
+        @apply bg-green-50 border-green-500 text-green-500
+    }
+    .form-group.has-success {
+        @apply text-green-500
+    }
+    .form-group.has-error {
+        @apply text-red-500
+    }
 }
 
  /* Overrides for Datatables to match the Tailwind CSS */

@@ -2,37 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82717287-e13a-442e-94b4-a42772988011" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/../../.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/blade.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/blade.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../.idea/dataSources/2b50e3bb-a09c-4d8a-a298-15a6dc4f40a9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/dataSources/2b50e3bb-a09c-4d8a-a298-15a6dc4f40a9.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../app/Http/Controllers/Api/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Http/Controllers/Api/AuthorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../koala_menu.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../koala_menu.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/koaladmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/js/koaladmin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/views/components/card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/components/card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/views/koaladmin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/koaladmin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/js/koaladmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/js/koaladmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/backend/authors/form.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/backend/authors/show.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/index-bak.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../resources/views/layouts/koaladmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/layouts/koaladmin.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../routes/koaladmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../routes/koaladmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/api-controller.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/api-controller.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/api-routes.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/api-routes.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/permissions.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/permissions.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generators/ApiRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generators/ApiRoutes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generators/ClassGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generators/ClassGenerator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Generators/Traits/Names.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generators/Traits/Names.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Koaladmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Koaladmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KoaladminServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/KoaladminServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generators/ViewForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generators/ViewForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generators/ViewIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generators/ViewIndex.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,6 +182,8 @@
       <workItem from="1607605177577" duration="38456000" />
       <workItem from="1607685857466" duration="13175000" />
       <workItem from="1607836831524" duration="9874000" />
+      <workItem from="1608055705264" duration="383000" />
+      <workItem from="1608062553588" duration="10283000" />
     </task>
     <servers />
   </component>

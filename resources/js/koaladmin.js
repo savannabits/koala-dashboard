@@ -1,6 +1,9 @@
 window._ = require('lodash');
 window.$ = window.jQuery = require('jquery')
 require('alpinejs');
+import Pristine from "pristinejs/dist/pristine.min";
+/*Micromodal.js*/
+import MicroModal from "micromodal";
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
  * to our Laravel back-end. This library automatically handles sending the
@@ -59,8 +62,6 @@ window.dispatchAlpineEvent = function(name, data) {
 window.dispatchModalEvent = function(modalId, payload = {}) {
     window.dispatchEvent(new CustomEvent('show-modal', {bubbles: true,detail: {payload: payload,modalId: modalId}}));
 }
-/*Micromodal.js*/
-import MicroModal from "micromodal";
 MicroModal.init({
     onShow: modal => console.info(`${modal.id} is shown`), // [1]
     onClose: modal => console.info(`${modal.id} is hidden`), // [2]
@@ -73,3 +74,38 @@ MicroModal.init({
     awaitCloseAnimation: false, // [9]
     debugMode: true // [10]
 });
+
+/*Server Validation using Pristine js */
+window.startValidation = function(formId) {
+    let form = document.getElementById(formId);
+    let defaultConfig = {
+        // class of the parent element where the error/success class is added
+        classTo: 'form-group',
+        errorClass: 'has-error',
+        successClass: 'has-success',
+        // class of the parent element where error text element is appended
+        errorTextParent: 'form-group',
+        // type of element to create for the error text
+        errorTextTag: 'div',
+        // class of the error text element
+        errorTextClass: 'text-sm font-semibold'
+    };
+    return new Pristine(form, defaultConfig);
+}
+window.setServerValidationErrors = function(validator,errorBag = {}) {
+    for (let field in errorBag) {
+        validator.addError(field,errorBag[0]) // set laravel error
+    }
+    return validator;
+}
+window.onload = function () {
+    /*Datepickers*/
+    let dp = flatpickr('.datepicker',{
+        dateFormat: 'Y-m-d',
+    })
+    flatpickr('.datetimepicker', {
+        enableTime: true,
+        enableSeconds: false,
+        dateFormat: 'Y-m-d H:i:00',
+    })
+}

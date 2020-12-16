@@ -1,17 +1,15 @@
-<b-form v-on:submit.prevent="ok()">
+<{{'x-card'}}>
 @foreach($columns as $col)
 @if($col['type'] === 'date' )
-<b-form-group
-    label-class="font-weight-bold" label="{{$col['label']}}"
-    :invalid-feedback="errors.first('{{$col['name']}}')"
->
+<div class="form-group p-2 my-1">
+    <label class="font-semibold">{{$col['label']}}</label>
     <date-picker
         name="{{$col['name']}}" id="{{$col['name']}}"
         :config="dateConfig" v-model="form.{{$col['name']}}"
         v-validate="'{{ implode('|', $col['frontendRules']) }}'"
         :class="{'is-invalid': validateState('{{$col['name']}}')===false, 'is-valid': validateState('{{$col['name']}}')===true}"
     ></date-picker>
-</b-form-group>
+</div>
     @elseif($col['type'] === 'time')
 <b-form-group
     label-class="font-weight-bold" label="{{$col['label']}}"
@@ -131,5 +129,5 @@
 @endif
 @endif
     <b-button class="d-none" type="submit"></b-button>
-</b-form>
+</{{'x-card'}}>
 
