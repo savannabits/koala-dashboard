@@ -1,7 +1,7 @@
 @props(['title' => '','centered' => false, 'id' , 'footer' => '', 'size' => 'xl','class' => ''])
 <div class="modal z-20" id="{{$id}}" aria-hidden="true">
     <div
-        class="modal__overlay z-30 justify-center {{$centered!==false && $centered!=='false' ? 'items-center': ''}}"
+        class="modal__overlay z-30 justify-center {{$centered!==false && $centered!=='false' ? 'items-center': 'items-start py-16'}}"
         tabindex="-1" data-micromodal-close>
         <div class="modal__container z-50 w-full max-w-{{$size}}" role="dialog" aria-modal="true" aria-labelledby="{{$id}}-title"
              x-transition:enter="ease-out duration-300"
@@ -63,8 +63,6 @@
         .modal-content {
             padding: 20px;
             background-color: #fff;
-            margin-top: 60px;
-            margin-bottom: 20px;
             border-radius: 5px;
        }
         .modal__header {

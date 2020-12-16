@@ -3,23 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d3a6dcad-d737-4e01-88dd-1626b1ac04d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AuthorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/koaladmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/koaladmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/koaladmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/koaladmin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/authors/form.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend/authors/show.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/koaladmin/authors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/koaladmin/authors/index-bak.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/koaladmin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/koaladmin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/koala/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/koala/modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/form.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/show.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/src/Generators/ViewForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/src/Generators/ViewForm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/src/Generators/ViewIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/src/Generators/ViewIndex.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +214,7 @@
       <workItem from="1607685983703" duration="40719000" />
       <workItem from="1607785605129" duration="46702000" />
       <workItem from="1608055705990" duration="402000" />
-      <workItem from="1608062556502" duration="27339000" />
+      <workItem from="1608062556502" duration="28915000" />
     </task>
     <servers />
   </component>
