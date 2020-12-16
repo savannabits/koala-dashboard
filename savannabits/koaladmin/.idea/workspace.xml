@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="82717287-e13a-442e-94b4-a42772988011" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../app/Http/Requests/Api/Author/UpdateAuthor.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../app/Http/Requests/Api/Author/UpdateAuthor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../resources/views/koaladmin/authors/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Generators/ViewIndex.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Generators/ViewIndex.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +172,7 @@
       <workItem from="1607685857466" duration="13175000" />
       <workItem from="1607836831524" duration="9874000" />
       <workItem from="1608055705264" duration="383000" />
-      <workItem from="1608062553588" duration="12658000" />
+      <workItem from="1608062553588" duration="15315000" />
     </task>
     <servers />
   </component>

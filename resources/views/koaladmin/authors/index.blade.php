@@ -88,7 +88,6 @@
     function authors() {
         return {
             payload: {},
-            form: {},
             created() {
                 return this.mounted()
             },
@@ -96,7 +95,12 @@
                 /* Component is mounted and DOM is ready */
             },
             async createAuthor() {
-                this.payload = {};
+                this.payload = {
+    "id": null,
+    "name": null,
+    "description": null,
+    "activated": null
+};
                 MicroModal.show('create-author-modal');
             },
             async showAuthor(id) {
@@ -126,7 +130,21 @@
                 }
             },
             async updateAuthor() {
-                console.log("TODO: Implement this");
+                let res = await apiSend(`{{route('api.authors.index')}}/${this.payload.id}`,this.payload,'put');
+                if (res?.success) {
+                    console.log(res.message);
+                    MicroModal.close('edit-author-modal');
+                    this.payload = {};
+                    dispatchAlpineEvent('refresh-dt','authors-dt')
+                }
+            },
+            async storeAuthor() {
+                let res = await apiSend(`{{route('api.authors.store')}}`,this.payload,'post');
+                if (res?.success) {
+                    MicroModal.close('store-author-modal');
+                    this.payload = {};
+                    dispatchAlpineEvent('refresh-dt','authors-dt')
+                }
             }
         }
     }

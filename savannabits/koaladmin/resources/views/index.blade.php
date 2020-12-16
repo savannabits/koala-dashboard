@@ -88,7 +88,6 @@
     function {{$modelVariableNamePlural}}() {
         return {
             payload: {},
-            form: {},
             created() {
                 return this.mounted()
             },
@@ -96,7 +95,7 @@
                 /* Component is mounted and DOM is ready */
             },
             async create{{$modelBaseName}}() {
-                this.payload = {};
+                this.payload = {!! json_encode((object)$columnNames,JSON_PRETTY_PRINT) !!};
                 MicroModal.show('create-author-modal');
             },
             async show{{$modelBaseName}}(id) {
@@ -127,6 +126,14 @@
             },
             async update{{$modelBaseName}}() {
                 console.log("TODO: Implement this");
+            },
+            async store{{$modelBaseName}}() {
+                let res = await apiSend(`{{'{{'}}route('api.authors.store')}}`,this.payload,'post');
+                if (res?.success) {
+                    MicroModal.close('delete-author-modal');
+                    this.payload = {};
+                    dispatchAlpineEvent('refresh-dt','authors-dt')
+                }
             }
         }
     }

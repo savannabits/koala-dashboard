@@ -129,10 +129,13 @@ class ViewIndex extends ViewGenerator {
             'export' => $this->export,
             'containsPublishedAtColumn' => in_array("published_at", array_column($this->readColumnsFromTable($this->tableName)->toArray(), 'name')),
             'withoutBulk' => $this->withoutBulk,
-
+            'columnNames' => $this->readColumnsFromTable($this->tableName)->reject(function($col) {
+                return (in_array($col['name'], ["created_at", "updated_at", "deleted_at"])
+                );
+            })->pluck('value','name'),
             'columns' => $this->readColumnsFromTable($this->tableName)->reject(function($column) {
                     return ($column['type'] == 'text'
-                        || in_array($column['name'], ["password", "remember_token", "slug", "created_at", "updated_at", "deleted_at"])
+                        || in_array($column['name'], ["password", "remember_token", "slug", "deleted_at"])
                         || ($column['type'] == 'json' && in_array($column['name'], ["perex", "text", "body"]))
                     );
                 })->map(function($col){

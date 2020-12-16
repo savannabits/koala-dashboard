@@ -12,6 +12,6 @@
         <input name="activated" id="activated" class="form-input p-3" type="checkbox" x-model="payload.activated"> Activated
     </label>
 </div>
-
+    
 </x-card>
 

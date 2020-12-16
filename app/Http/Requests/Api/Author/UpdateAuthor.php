@@ -30,7 +30,7 @@ class UpdateAuthor extends FormRequest
             'name' => ['sometimes', 'string'],
             'description' => ['sometimes', 'string'],
             'activated' => ['sometimes', 'boolean'],
-                    
+
         ];
     }
 
@@ -54,6 +54,6 @@ class UpdateAuthor extends FormRequest
     */
     public function sanitizedObject(): object {
         $sanitized = $this->sanitizedArray();
-        return json_decode(collect($sanitized));
+        return (object) json_decode(collect($sanitized)->toJson());
     }
 }
