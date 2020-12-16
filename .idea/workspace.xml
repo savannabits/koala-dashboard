@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d3a6dcad-d737-4e01-88dd-1626b1ac04d3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/koala/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/koala/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/koaladmin/authors/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/koaladmin/authors/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/koaladmin/authors/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/koaladmin/authors/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/savannabits/koaladmin/resources/views/form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +216,7 @@
       <workItem from="1607685983703" duration="40719000" />
       <workItem from="1607785605129" duration="46702000" />
       <workItem from="1608055705990" duration="402000" />
-      <workItem from="1608062556502" duration="28915000" />
+      <workItem from="1608062556502" duration="30784000" />
     </task>
     <servers />
   </component>

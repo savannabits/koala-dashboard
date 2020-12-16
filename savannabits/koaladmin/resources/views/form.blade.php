@@ -1,111 +1,59 @@
 <{{'x-card'}}>
 @foreach($columns as $col)
 @if($col['type'] === 'date' )
-<div class="form-group p-2 my-1">
-    <label class="font-semibold">{{$col['label']}}</label>
-    <date-picker
-        name="{{$col['name']}}" id="{{$col['name']}}"
-        :config="dateConfig" v-model="form.{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :class="{'is-invalid': validateState('{{$col['name']}}')===false, 'is-valid': validateState('{{$col['name']}}')===true}"
-    ></date-picker>
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input datepicker mt-2 block w-full" type="date" x-model="payload.{{$col['name']}}">
 </div>
     @elseif($col['type'] === 'time')
-<b-form-group
-    label-class="font-weight-bold" label="{{$col['label']}}"
-    :invalid-feedback="errors.first('{{$col['name']}}')"
->
-    <date-picker
-        name="{{$col['name']}}" id="{{$col['name']}}"
-        :config="timeConfig" v-model="form.{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :class="{'is-invalid': validateState('{{$col['name']}}')===false, 'is-valid': validateState('{{$col['name']}}')===true}"
-    ></date-picker>
-</b-form-group>
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input mt-2 block w-full" type="time" x-model="payload.{{$col['name']}}">
+</div>
     @elseif($col['type'] === 'datetime')
-<b-form-group
-    label-class="font-weight-bold" label="{{$col['name']}}"
-    :invalid-feedback="errors.first('{{$col['name']}}')"
->
-    <date-picker
-        name="{{$col['name']}}" id="{{$col['name']}}"
-        :config="dateTimeConfig" v-model="form.{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :class="{'is-invalid': validateState('{{$col['name']}}')===false, 'is-valid': validateState('{{$col['name']}}')===true}"
-    ></date-picker>
-</b-form-group>
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input datetimepicker mt-2 block w-full" type="date" x-model="payload.{{$col['name']}}">
+</div>
     @elseif($col['type'] === 'boolean')
-<b-form-group label-cols="4" label-class="font-weight-bolder" label="{{$col['label']}}">
-    <b-form-checkbox
-        size="lg"
-        name="{{$col['name']}}" id="{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :state="validateState('{{$col['name']}}')" v-model="form.{{$col['name']}}"
-    ></b-form-checkbox>
-    <b-form-invalid-feedback v-if="errors.has('{{$col['name']}}')">
-        @php
-            echo '@{{errors.first(\''.$col['name'].'\')}}';
-        @endphp
-    </b-form-invalid-feedback>
-</b-form-group>
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">
+        <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input p-3" type="checkbox" x-model="payload.{{$col['name']}}"> {{$col['label']}}
+    </label>
+</div>
+    @elseif($col['type'] ==='string')
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input mt-2 block w-full" type="text" x-model="payload.{{$col['name']}}">
+</div>
+    @elseif(in_array($col['type'],['float','integer','double']))
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input mt-2 block w-full" type="number" x-model="payload.{{$col['name']}}">
+</div>
     @elseif($col['type'] === 'text')
-<b-form-group label="{{$col['label']}}" label-class="font-weight-bolder">
-    <b-form-textarea
-        name="{{$col['name']}}" id="{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :state="validateState('{{$col['name']}}')" v-model="form.{{$col['name']}}"
-    ></b-form-textarea>
-    <b-form-invalid-feedback v-if="errors.has('{{$col['name']}}')">
-        @php
-            echo '@{{errors.first(\''.$col['name'].'\')}}';
-        @endphp
-    </b-form-invalid-feedback>
-</b-form-group>
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <textarea rows="5" name="{{$col['name']}}" id="{{$col['name']}}" class="form-textarea mt-2 block w-full" x-model="payload.{{$col['name']}}"></textarea>
+</div>
+    @elseif($col['name'] === 'password')
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input datetimepicker mt-2 block w-full" type="password" x-model="payload.{{$col['name']}}">
+</div>
 
-        @elseif($col['name'] === 'password')
-<b-form-group label="{{$col['label']}}" label-class="font-weight-bolder">
-    <b-form-input
-        type="password" name="{{$col['name']}}" ref="{{$col['name']}}" id="{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :state="validateState('{{$col['name']}}')" v-model="form.{{$col['name']}}"
-    ></b-form-input>
-    <b-form-invalid-feedback v-if="errors.has('{{$col['name']}}')">
-        @php
-            echo '@{{errors.first(\''.$col['name'].'\')}}';
-        @endphp
-    </b-form-invalid-feedback>
-</b-form-group>
-
-<b-form-group label="Confirm Password" label-class="font-weight-bolder">
-    <b-form-input
-        type="password" name="password_confirmation" id="password_confirmation"
-        data-vv-as="password"
-        v-validate="'confirmed:password|{{ implode('|', $col['frontendRules']) }}'"
-        :state="validateState('password_confirmation')" v-model="form.password_confirmation"
-    ></b-form-input>
-    <b-form-invalid-feedback v-if="errors.has('password_confirmation')">
-        @php
-            echo '@{{errors.first(\'password_confirmation\')}}';
-        @endphp
-    </b-form-invalid-feedback>
-</b-form-group>
-
+<div class="form-group my-2">
+    <label for="{{$col['name']}}_confirmation" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}_confirmation" id="{{$col['name']}}_confirmation" class="form-input mt-2 block w-full" type="password" x-model="payload.{{$col['name']}}_confirmation">
+</div>
     @else
-<b-form-group label-class="font-weight-bolder" label="{{$col['label']}}">
-    <b-form-input
-        type="text" name="{{$col['name']}}" id="{{$col['name']}}"
-        v-validate="'{{ implode('|', $col['frontendRules']) }}'"
-        :state="validateState('{{$col['name']}}')" v-model="form.{{$col['name']}}"
-    ></b-form-input>
-    <b-form-invalid-feedback v-if="errors.has('{{$col['name']}}')">
-        @php
-            echo '@{{errors.first(\''.$col['name'].'\')}}';
-        @endphp
-    </b-form-invalid-feedback>
-</b-form-group>
+<div class="form-group my-2">
+    <label for="{{$col['name']}}" class="font-semibold">{{$col['label']}}</label>
+    <input name="{{$col['name']}}" id="{{$col['name']}}" class="form-input mt-2 block w-full" type="text" x-model="payload.{{$col['name']}}">
+</div>
 @endif
 @endforeach
-@if (count($relations))
+{{--@if (count($relations))
 @if(isset($relations['belongsTo']) && count($relations['belongsTo']))
 @foreach($relations['belongsTo'] as $belongsTo)
 <b-form-group label-class="font-weight-bolder" label="{{$belongsTo['related_model_title']}}">
@@ -127,7 +75,6 @@
 </b-form-group>
 @endforeach
 @endif
-@endif
-    <b-button class="d-none" type="submit"></b-button>
+@endif--}}
 </{{'x-card'}}>
 
